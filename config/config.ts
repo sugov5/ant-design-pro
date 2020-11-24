@@ -42,4 +42,7 @@ export default defineConfig({
   },
   exportStatic: {},
   esbuild: {},
+  define: {
+    REACT_APP_ENV: REACT_APP_ENV || 'dev',
+  },
 });
