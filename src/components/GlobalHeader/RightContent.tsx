@@ -51,26 +51,28 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = (props) => {
         //   //console.log('input', value);
         // }}
       />
-      <Tooltip title="使用文档">
-        <a
-          style={{
-            color: 'inherit',
-          }}
-          target="_blank"
-          href="https://pro.ant.design/docs/getting-started"
-          rel="noopener noreferrer"
-          className={styles.action}
-        >
-          <QuestionCircleOutlined />
-        </a>
-      </Tooltip>
+      {REACT_APP_ENV !== undefined && REACT_APP_ENV !== 'prod' && (
+        <Tooltip title="使用文档">
+          <a
+            style={{
+              color: 'inherit',
+            }}
+            target="_blank"
+            href="https://pro.ant.design/docs/getting-started"
+            rel="noopener noreferrer"
+            className={styles.action}
+          >
+            <QuestionCircleOutlined />
+          </a>
+        </Tooltip>
+      )}
       <Avatar />
-      {REACT_APP_ENV && (
+      <SelectLang className={styles.action} />
+      {REACT_APP_ENV !== undefined && REACT_APP_ENV !== 'prod' && (
         <span>
           <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
         </span>
       )}
-      <SelectLang className={styles.action} />
     </div>
   );
 };
